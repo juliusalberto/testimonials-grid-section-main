@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$barlow: "Barlow Semi Condensed";
+
+$colors: (
+    white: hsl(0, 0%, 100%),
+    moderate-violet: hsl(263, 55%, 52%),
+    dark-grayish-blue: hsl(217, 19%, 35%),
+    dark-blackish-blue: hsl(219, 29%, 14%),
+    light-gray: hsl(0, 0%, 81%),
+    light-grayish-blue: hsl(210, 46%, 95%)
+);
+
+@mixin flexbox($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font-style($family, $size, $weight, $line-height: normal) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+}
+
+@mixin para_color($big_color, $small_color) {
+    .big-para {
+        color: $big_color;
+    }
+
+    .small-para {
+        color: $small_color;
+    }
+}
+
+%card {
+    border-radius: 8px;
+    box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.25);
+    padding: 26px 32px;
+
+    .big-para {
+        @include font-style($barlow, 20px, 600);
+        margin-bottom: 24px;
+    }
+
+    .small-para {
+        @include font-style($barlow, 13px, 500, 18px);
+        opacity: 0.7;
+    }
+
+    .profile-text {
+        @include font-style($barlow, 13px, 500);
+        opacity: 1;
+
+        b {
+            @include font-style($barlow, 11px, 500);
+            opacity: 0.5;
+        }
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    height: 572px;
+    width: 1110px;
+    display: grid;
+    grid-template-rows: 282px 1fr;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 24px 30px;
+
+    .card {
+        &-item-one {
+            @extend %card;
+            position: relative;
+            grid-row: 1 / 2;
+            grid-column: 1/ 5;
+            background: map-get($map: $colors, $key: moderate-violet);
+            background-image: url('./images/bg-pattern-quotation.svg');
+            background-repeat: no-repeat;
+            background-position: top right 15%;
+            @include para_color(white, map-get($colors, light-gray));
+
+            .profile-text {
+                color: white;
+            }
+
+            .profile > img {
+                border: 2px solid #A775F1;
+            }
+        }
+    
+        &-item-two {
+            @extend %card;
+            grid-row: 1 / 2;
+            grid-column: 5/7;
+            background: map-get($map: $colors, $key: dark-grayish-blue);
+            color: white;
+            @include para_color(white, map-get($colors, light-gray));
+
+            .profile-text {
+                color: white;
+            }
+        }
+    
+        &-item-three {
+            @extend %card;
+            grid-row: 2 / 3;
+            grid-column: 1 / 3;
+            background: map-get($map: $colors, $key: white);
+            color: map-get($map: $colors, $key: dark-grayish-blue);
+
+            .profile-text {
+                color: hsla(217, 19%, 35%, 1);
+            }
+        }
+    
+        &-item-four {
+            @extend %card;
+            grid-row: 2 / 3;
+            grid-column: 3 / 7;
+            background: map-get($map: $colors, $key: dark-blackish-blue);
+            @include para_color(map-get($colors, light-grayish-blue), white);
+
+            .profile-text {
+                color: white;
+            }
+
+            .profile > img {
+                border: 2px solid #A775F1;
+            }
+        }
+    
+        &-item-five {
+            @extend %card;
+            grid-column: 7 / 9;
+            grid-row: 1 / 3;
+            background: map-get($map: $colors, $key: white);
+            color: map-get($map: $colors, $key: dark-grayish-blue);
+
+            .profile-text {
+                color: hsla(217, 19%, 35%, 1);
+            }
+        }
+    }
+
+    .profile {
+        @include flexbox();
+        gap: 17px;
+        margin-bottom: 18px;
+
+        .profile-text {
+            @include flexbox(column);
+        }
+
+        img {
+            height: 28px;
+            width: 28px;
+            border-radius: 28px;
+        }
+    }
+
+
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 100vh;
+    background: #ECF2F8;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+        padding: 70px 0 !important;
+    }
+}

@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.grid-container .card-item-five, .grid-container .card-item-four, .grid-container .card-item-three, .grid-container .card-item-two, .grid-container .card-item-one {
+  border-radius: 8px;
+  box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.25);
+  padding: 26px 32px;
+}
+.grid-container .card-item-five .big-para, .grid-container .card-item-four .big-para, .grid-container .card-item-three .big-para, .grid-container .card-item-two .big-para, .grid-container .card-item-one .big-para {
+  font-family: "Barlow Semi Condensed";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 24px;
+}
+.grid-container .card-item-five .small-para, .grid-container .card-item-four .small-para, .grid-container .card-item-three .small-para, .grid-container .card-item-two .small-para, .grid-container .card-item-one .small-para {
+  font-family: "Barlow Semi Condensed";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  opacity: 0.7;
+}
+.grid-container .card-item-five .profile-text, .grid-container .card-item-four .profile-text, .grid-container .card-item-three .profile-text, .grid-container .card-item-two .profile-text, .grid-container .card-item-one .profile-text {
+  font-family: "Barlow Semi Condensed";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  opacity: 1;
+}
+.grid-container .card-item-five .profile-text b, .grid-container .card-item-four .profile-text b, .grid-container .card-item-three .profile-text b, .grid-container .card-item-two .profile-text b, .grid-container .card-item-one .profile-text b {
+  font-family: "Barlow Semi Condensed";
+  font-size: 11px;
+  font-weight: 500;
+  line-height: normal;
+  opacity: 0.5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container {
+  height: 572px;
+  width: 1110px;
+  display: grid;
+  grid-template-rows: 282px 1fr;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 24px 30px;
+}
+.grid-container .card-item-one {
+  position: relative;
+  grid-row: 1/2;
+  grid-column: 1/5;
+  background: hsl(263, 55%, 52%);
+  background-image: url("./images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: top right 15%;
+}
+.grid-container .card-item-one .big-para {
+  color: white;
+}
+.grid-container .card-item-one .small-para {
+  color: hsl(0, 0%, 81%);
+}
+.grid-container .card-item-one .profile-text {
+  color: white;
+}
+.grid-container .card-item-one .profile > img {
+  border: 2px solid #A775F1;
+}
+.grid-container .card-item-two {
+  grid-row: 1/2;
+  grid-column: 5/7;
+  background: hsl(217, 19%, 35%);
+  color: white;
+}
+.grid-container .card-item-two .big-para {
+  color: white;
+}
+.grid-container .card-item-two .small-para {
+  color: hsl(0, 0%, 81%);
+}
+.grid-container .card-item-two .profile-text {
+  color: white;
+}
+.grid-container .card-item-three {
+  grid-row: 2/3;
+  grid-column: 1/3;
+  background: hsl(0, 0%, 100%);
+  color: hsl(217, 19%, 35%);
+}
+.grid-container .card-item-three .profile-text {
+  color: hsl(217, 19%, 35%);
+}
+.grid-container .card-item-four {
+  grid-row: 2/3;
+  grid-column: 3/7;
+  background: hsl(219, 29%, 14%);
+}
+.grid-container .card-item-four .big-para {
+  color: hsl(210, 46%, 95%);
+}
+.grid-container .card-item-four .small-para {
+  color: white;
+}
+.grid-container .card-item-four .profile-text {
+  color: white;
+}
+.grid-container .card-item-four .profile > img {
+  border: 2px solid #A775F1;
+}
+.grid-container .card-item-five {
+  grid-column: 7/9;
+  grid-row: 1/3;
+  background: hsl(0, 0%, 100%);
+  color: hsl(217, 19%, 35%);
+}
+.grid-container .card-item-five .profile-text {
+  color: hsl(217, 19%, 35%);
+}
+.grid-container .profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 17px;
+  margin-bottom: 18px;
+}
+.grid-container .profile .profile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.grid-container .profile img {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  height: 100vh;
+  background: #ECF2F8;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 80%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    padding: 70px 0 !important;
+  }
+}/*# sourceMappingURL=style.css.map */
